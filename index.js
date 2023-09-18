@@ -3,6 +3,7 @@ const fileUploader = require("express-fileupload")
 const generate_ascii_art = require('./ascii_art_generator');
 const path = require('path')
 const app = express();
+const port = process.env.PORT || 3001;
 app.use(express.static("."));
 app.set('view engine','ejs')
 app.set('views', path.join(__dirname, 'views'));
@@ -21,6 +22,6 @@ app.post("/upload",(req,res)=>{
     }
 })
 
-app.listen(3001,()=>{
-    console.log("Server running on http://127.0.0.1:3001")
+app.listen(port,()=>{
+    console.log("process running on port"+ port);
 })
